@@ -7,6 +7,7 @@ import ro.nicolaemariusghergu.presentationtesting.payload.AnimalRequest;
 import ro.nicolaemariusghergu.presentationtesting.service.AnimalService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/animals")
@@ -19,6 +20,22 @@ public class AnimalController {
     public List<Animal> getAnimals() {
         return animalService.getAnimals();
     }
+
+    @GetMapping("/caffeine/{animalId}")
+    public Animal getAnimalById(@PathVariable(name = "animalId") UUID animalId) {
+        return animalService.getAnimal(animalId);
+    }
+
+    @GetMapping("/eh-cache/{animalId}")
+    public Animal getAnimalByIdCaffeine(@PathVariable(name = "animalId") UUID animalId) {
+        return animalService.getAnimalEhCache(animalId);
+    }
+
+    @GetMapping("/hazelcast/{animalId}")
+    public Animal getAnimalByIdHazelcast(@PathVariable(name = "animalId") UUID animalId) {
+        return animalService.getAnimalHazelcast(animalId);
+    }
+
 
     @PostMapping
     public boolean addAnimal(@RequestBody AnimalRequest animal) {

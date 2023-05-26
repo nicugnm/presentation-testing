@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+  postgres_db:
+    image: "postgres:latest"
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: root
+
+  hazelcast:
+    image: hazelcast/hazelcast:4.2
+    ports:
+      - 5701:5701
+    volumes:
+      - ./hazelcast:/opt/hazelcast/data

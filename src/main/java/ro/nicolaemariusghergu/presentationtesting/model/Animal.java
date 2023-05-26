@@ -1,14 +1,21 @@
 package ro.nicolaemariusghergu.presentationtesting.model;
 
-import lombok.Builder;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.UUID;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Builder
+@Entity
+@Table(name = "animals")
 public class Animal {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID animalId;
 
     private String name;

@@ -7,10 +7,7 @@ import io.gatling.http.protocol.HttpProtocolBuilder;
 import io.gatling.javaapi.core.*;
 import io.gatling.javaapi.http.HttpDsl;
 
-import java.util.UUID;
 import java.util.function.Function;
-
-import static ro.nicolaemariusghergu.presentationtesting.performance.AnimalControllerTests.Templates.template;
 
 
 public class AnimalControllerTests extends Simulation {
